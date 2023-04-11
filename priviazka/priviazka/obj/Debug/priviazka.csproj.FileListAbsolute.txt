@@ -1,0 +1,38 @@
+O:\РИС проекты\priviazka\priviazka\bin\Debug\priviazka.exe.config
+O:\РИС проекты\priviazka\priviazka\bin\Debug\priviazka.exe
+O:\РИС проекты\priviazka\priviazka\bin\Debug\priviazka.pdb
+O:\РИС проекты\priviazka\priviazka\obj\Debug\MainWindow.g.cs
+O:\РИС проекты\priviazka\priviazka\obj\Debug\App.g.cs
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.cache
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.lref
+O:\РИС проекты\priviazka\priviazka\obj\Debug\MainWindow.baml
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.g.resources
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.Properties.Resources.resources
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.csproj.GenerateResource.cache
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.csproj.CoreCompileInputs.cache
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.exe
+O:\РИС проекты\priviazka\priviazka\obj\Debug\priviazka.pdb
+O:\РИС проекты\priviazka\priviazka\obj\Debug\App.baml
+O:\РИС проекты\priviazka\priviazka\obj\Debug\Authorizationpage.g.cs
+O:\РИС проекты\priviazka\priviazka\obj\Debug\Authorizationpage.baml
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\bin\Debug\priviazka.exe.config
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\bin\Debug\priviazka.exe
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\bin\Debug\priviazka.pdb
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.csproj.AssemblyReference.cache
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.csproj.SuggestedBindingRedirects.cache
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\MainWindow.g.cs
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Authorizationpage.g.cs
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\App.g.cs
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.cache
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.lref
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\App.baml
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\MainWindow.baml
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Authorizationpage.baml
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.g.resources
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.Properties.Resources.resources
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.csproj.GenerateResource.cache
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.csproj.CoreCompileInputs.cache
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.exe
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.pdb
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Coise_ticket.g.cs
+D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Coise_ticket.baml

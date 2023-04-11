@@ -1,0 +1,27 @@
+﻿<Page x:Class="priviazka.Coise_ticket"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:priviazka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Coise_ticket">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Name="Adminlist" Visibility="Hidden">
+            <TextBlock Text="Введите название мероприятия"/>
+            <TextBox Name="tbEventname"/>
+            <Button Name="btnAddEvent" Click="btnAddEvent_Click"/>
+        </StackPanel>
+        <StackPanel Name="Alllist" Grid.Row="1">
+            <TextBlock Text="Выберете мероприятие на этот месяц(все мероприятия проводятся в последнюю субботу месяца)"/>
+            <ComboBox Grid.Row="0" Width="250" Height="20" Name="cbEventList"/>
+            <Button Content="Записаться на мероприятие" x:Name="btnChoisen" Width="250" Grid.Row="1" Click="btnChoisen_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
