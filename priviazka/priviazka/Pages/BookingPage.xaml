@@ -1,0 +1,170 @@
+﻿<Page x:Class="priviazka.BookingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:priviazka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookingPage">
+
+    <Page.Resources>
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsToday}"
+                             Value="True">
+                    <Setter Property="Background" Value="LightBlue"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Заголовок страницы -->
+        <TextBlock Grid.Row="0" Text="Booking Schedule" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20"/>
+
+        <!-- Панель с вкладками для каждого дня недели -->
+            <TabControl Grid.Row="1" x:Name="ScheduleTabControl" Margin="10" BorderBrush="#FF3C3C3C">
+                <TabItem Header="Понедельник">
+                    <DataGrid x:Name="MondayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Start Time" Binding="{Binding Monday.StartTime}"/>
+                        <DataGridTextColumn Header="End Time" Binding="{Binding Monday.EndTime}"/>
+                        <DataGridTextColumn Header="User Name" Binding="{Binding Monday.UserName}"/>
+                        <DataGridTextColumn Header="Order Status" Binding="{Binding Monday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Вторник">
+                    <DataGrid x:Name="TuesdayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Tuesday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Tuesday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Tuesday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Tuesday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Среда">
+                    <DataGrid x:Name="WednesdayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Wednesday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Wednesday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Wednesday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Wednesday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Четверг">
+                    <DataGrid x:Name="ThursdayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Thursday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Thursday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Thursday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Thursday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Пятница">
+                    <DataGrid x:Name="FridayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Friday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Friday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Friday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Friday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Суббота">
+                    <DataGrid x:Name="SaturdayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Saturday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Saturday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Saturday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Saturday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Воскресенье">
+                    <DataGrid x:Name="SundayScheduleDataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  AlternatingRowBackground="#FF1F1F1F" RowBackground="#FF2D2D2D" BorderBrush="#FF3C3C3C"
+                  HeadersVisibility="Column" SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding Sunday.StartTime}"/>
+                            <DataGridTextColumn Header="End Time" Binding="{Binding Sunday.EndTime}"/>
+                            <DataGridTextColumn Header="User Name" Binding="{Binding Sunday.UserName}"/>
+                            <DataGridTextColumn Header="Order Status" Binding="{Binding Sunday.OrderStatus}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit" Click="EditButton_Click" Tag="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+
+        <!-- Кнопка для бронирования -->
+        <Button Grid.Row="1" x:Name="AddBookingButton" Content="Создать новую бронь" Click="AddBookingButton_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10"/>
+    </Grid>
+</Page>

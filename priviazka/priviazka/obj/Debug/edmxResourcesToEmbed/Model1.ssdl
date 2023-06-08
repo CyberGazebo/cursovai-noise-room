@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище NoizeRoomModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="clients">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="client_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="client_phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="client_email" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="finances">
+    <Key>
+      <PropertyRef Name="finance_id" />
+    </Key>
+    <Property Name="finance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="finance_type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="finance_date" Type="date" Nullable="false" />
+    <Property Name="finance_amount" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="client_id" Type="int" />
+    <Property Name="schedule_id" Type="int" />
+    <Property Name="order_date" Type="date" Nullable="false" />
+    <Property Name="order_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="order_duration" Type="time" Precision="7" Nullable="false" />
+    <Property Name="order_price" Type="float" Nullable="false" />
+    <Property Name="order_payment_status" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="schedule">
+    <Key>
+      <PropertyRef Name="schedule_id" />
+    </Key>
+    <Property Name="schedule_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studio_id" Type="int" />
+    <Property Name="schedule_date" Type="date" Nullable="false" />
+    <Property Name="schedule_start_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="schedule_end_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="schedule_availability_status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__finances__order___2F10007B">
+    <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+    <End Role="finances" Type="Self.finances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="finances">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__client_i__286302EC">
+    <End Role="clients" Type="Self.clients" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_schedule">
+    <End Role="schedule" Type="Self.schedule" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="schedule">
+        <PropertyRef Name="schedule_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище NoizeRoomModelContainer">
+    <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="finances" EntityType="Self.finances" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="schedule" EntityType="Self.schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__finances__order___2F10007B" Association="Self.FK__finances__order___2F10007B">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="finances" EntitySet="finances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__client_i__286302EC" Association="Self.FK__orders__client_i__286302EC">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_schedule" Association="Self.FK_orders_schedule">
+      <End Role="schedule" EntitySet="schedule" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

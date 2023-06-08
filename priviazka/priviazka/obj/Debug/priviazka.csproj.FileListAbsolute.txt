@@ -36,3 +36,28 @@ D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\pr
 D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\priviazka.pdb
 D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Coise_ticket.g.cs
 D:\шарага\laba_s_privyazkami\лаба с привязками\priviazka\priviazka\obj\Debug\Coise_ticket.baml
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\bin\Debug\priviazka.exe.config
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\bin\Debug\priviazka.exe
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\bin\Debug\priviazka.pdb
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.csproj.AssemblyReference.cache
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.csproj.SuggestedBindingRedirects.cache
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\Coise_ticket.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\MainWindow.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\Authorizationpage.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\App.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.cache
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka_MarkupCompile.lref
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\App.baml
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\Coise_ticket.baml
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\MainWindow.baml
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\Authorizationpage.baml
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.g.resources
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.Properties.Resources.resources
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.csproj.GenerateResource.cache
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.csproj.CoreCompileInputs.cache
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.exe
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka.pdb
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\BookingPage.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\LoginPage.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\RegistrationPage.g.cs
+C:\шарага\cursovai-noise-room-main\priviazka\priviazka\obj\Debug\priviazka_Content.g.cs

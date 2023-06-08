@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NoizeRoomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="client_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="client_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="client_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__client_i__286302EC" FromRole="clients" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="finance">
+    <Key>
+      <PropertyRef Name="finance_id" />
+    </Key>
+    <Property Name="finance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="finance_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="finance_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="finance_amount" Type="Double" Nullable="false" />
+    <NavigationProperty Name="order" Relationship="Self.FK__finances__order___2F10007B" FromRole="finances" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="client_id" Type="Int32" />
+    <Property Name="schedule_id" Type="Int32" />
+    <Property Name="order_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="order_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="order_duration" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="order_price" Type="Double" Nullable="false" />
+    <Property Name="order_payment_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="client" Relationship="Self.FK__orders__client_i__286302EC" FromRole="orders" ToRole="clients" />
+    <NavigationProperty Name="finances" Relationship="Self.FK__finances__order___2F10007B" FromRole="orders" ToRole="finances" />
+    <NavigationProperty Name="schedule" Relationship="Self.FK_orders_schedule" FromRole="orders" ToRole="schedule" />
+  </EntityType>
+  <EntityType Name="schedule">
+    <Key>
+      <PropertyRef Name="schedule_id" />
+    </Key>
+    <Property Name="schedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studio_id" Type="Int32" />
+    <Property Name="schedule_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="schedule_start_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="schedule_end_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="schedule_availability_status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_schedule" FromRole="schedule" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__orders__client_i__286302EC">
+    <End Role="clients" Type="Self.client" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__finances__order___2F10007B">
+    <End Role="orders" Type="Self.order" Multiplicity="0..1" />
+    <End Role="finances" Type="Self.finance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="finances">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_schedule">
+    <End Role="schedule" Type="Self.schedule" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="schedule">
+        <PropertyRef Name="schedule_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NoizeRoomEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clients" EntityType="Self.client" />
+    <EntitySet Name="finances" EntityType="Self.finance" />
+    <EntitySet Name="orders" EntityType="Self.order" />
+    <EntitySet Name="schedules" EntityType="Self.schedule" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__orders__client_i__286302EC" Association="Self.FK__orders__client_i__286302EC">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__finances__order___2F10007B" Association="Self.FK__finances__order___2F10007B">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="finances" EntitySet="finances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_schedule" Association="Self.FK_orders_schedule">
+      <End Role="schedule" EntitySet="schedules" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

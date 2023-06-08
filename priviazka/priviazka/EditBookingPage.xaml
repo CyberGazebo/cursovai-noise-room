@@ -1,0 +1,36 @@
+﻿<Page x:Class="priviazka.EditBookingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:priviazka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditBookingPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Дата бронирования:"/>
+        <DatePicker Grid.Row="1" x:Name="BookingDatePicker" SelectedDate="{Binding BookingDate, Mode=TwoWay}"/>
+
+        <Label Grid.Row="2" Content="Время начала:"/>
+        <TimePicker Grid.Row="3" x:Name="StartTimePicker" SelectedTime="{Binding StartTime, Mode=TwoWay}"/>
+
+        <Label Grid.Row="4" Content="Время окончания:"/>
+        <TimePicker Grid.Row="5" x:Name="EndTimePicker" SelectedTime="{Binding EndTime, Mode=TwoWay}"/>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Сохранить" Click="SaveButton_Click"/>
+            <Button Content="Удалить" Click="DeleteButton_Click" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
