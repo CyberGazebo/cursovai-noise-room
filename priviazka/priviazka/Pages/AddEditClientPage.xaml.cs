@@ -21,7 +21,7 @@ namespace priviazka
     public partial class AddEditClientPage : Page
     {
         private bool isEditMode;
-        private clients selectedClient;
+        private Clients selectedClient = new Clients();
 
         public AddEditClientPage()
         {
@@ -31,31 +31,36 @@ namespace priviazka
             selectedClient = null;
         }
 
-        public AddEditClientPage(clients client)
+        public AddEditClientPage(int clientId) // Изменен тип параметра на int
         {
             InitializeComponent();
 
             isEditMode = true;
-            selectedClient = client;
 
-            // Заполнение полей данными выбранного клиента
-            FirstNameTextBox.Text = client.client_first_name;
-            LastNameTextBox.Text = client.client_last_name;
-            PhoneTextBox.Text = client.client_phone;
-            EmailTextBox.Text = client.client_email;
+            using (noiseroomEntities context = noiseroomEntities.GetContext())
+            {
+                selectedClient = context.Clients.Find(clientId); // Получение объекта Clients по идентификатору
+
+                if (selectedClient != null)
+                {
+                    // Заполнение полей данными выбранного клиента
+                    FirstNameTextBox.Text = selectedClient.client_name;
+                    PhoneTextBox.Text = selectedClient.client_phone;
+                    EmailTextBox.Text = selectedClient.client_email;
+                }
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateInput())
             {
-                using (NoizeRoomEntities context = NoizeRoomEntities.GetContext())
+                using (noiseroomEntities context = noiseroomEntities.GetContext())
                 {
                     if (isEditMode)
                     {
                         // Редактирование существующего клиента
-                        selectedClient.client_first_name = FirstNameTextBox.Text;
-                        selectedClient.client_last_name = LastNameTextBox.Text;
+                        selectedClient.client_name = FirstNameTextBox.Text;
                         selectedClient.client_phone = PhoneTextBox.Text;
                         selectedClient.client_email = EmailTextBox.Text;
 
@@ -64,15 +69,14 @@ namespace priviazka
                     else
                     {
                         // Создание нового клиента
-                        clients newClient = new clients
+                        Clients newClient = new Clients
                         {
-                            client_first_name = FirstNameTextBox.Text,
-                            client_last_name = LastNameTextBox.Text,
+                            client_name = FirstNameTextBox.Text,
                             client_phone = PhoneTextBox.Text,
                             client_email = EmailTextBox.Text
                         };
 
-                        context.clients.Add(newClient);
+                        context.Clients.Add(newClient);
                     }
 
                     // Сохранение изменений в базе данных
@@ -81,8 +85,7 @@ namespace priviazka
                     MessageBox.Show("Данные клиента сохранены успешно!");
 
                     // Переход на страницу со списком клиентов
-                    ClientsListPage clientsListPage = new ClientsListPage();
-                    NavigationService.Navigate(clientsListPage);
+                    NavigationService?.Navigate(new AllClientPage());
                 }
             }
         }
@@ -91,13 +94,7 @@ namespace priviazka
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
             {
-                MessageBox.Show("Пожалуйста, введите имя клиента.");
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(LastNameTextBox.Text))
-            {
-                MessageBox.Show("Пожалуйста, введите фамилию клиента.");
+                MessageBox.Show("Пожалуйста, введите ФИО клиента.");
                 return false;
             }
 

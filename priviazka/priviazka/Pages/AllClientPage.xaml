@@ -12,9 +12,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label Content="Все клиенты" Grid.Row="0"/>
-        <DataGrid x:Name="ClientsDataGrid" AutoGenerateColumns="False" Margin="10" RowHeaderWidth="0" CanUserAddRows="False" Grid.Row="1">
+        <DataGrid x:Name="ClientsDataGrid" AutoGenerateColumns="False" Margin="10,10,10,10" RowHeaderWidth="0" CanUserAddRows="False" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding client_id}" Width="Auto"/>
                 <DataGridTextColumn Header="Имя клиента" Binding="{Binding client_name}" Width="*"/>
@@ -29,5 +30,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Посмотреть историю" Click="ViewHistoryButton_Click" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="33" Width="256"/>
+        <Button Content="Добавить клиента" x:Name="AddClient" Click="AddClient_Click" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="33" Width="256"/>
     </Grid>
 </Page>

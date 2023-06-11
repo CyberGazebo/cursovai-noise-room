@@ -13,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace priviazka
 {
@@ -22,7 +21,7 @@ namespace priviazka
     /// </summary>
     public partial class AllClientPage : Page
     {
-        private string connectionString = "YourConnectionString"; // Замените на свою строку подключения к базе данных
+        private string noiseroomEntities; // Замените на свою строку подключения к базе данных
 
         public AllClientPage()
         {
@@ -34,12 +33,12 @@ namespace priviazka
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(noiseroomEntities))
                 {
                     connection.Open();
 
                     // Запрос для получения всех клиентов
-                    string query = "SELECT * FROM clients";
+                    string query = "SELECT * FROM Сlients";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -74,6 +73,31 @@ namespace priviazka
             {
                 MessageBox.Show("Пожалуйста, выберите клиента для редактирования.");
             }
+        }
+
+
+        private void ViewHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранный клиент
+            DataRowView selectedRow = (DataRowView)ClientsDataGrid.SelectedItem;
+            if (selectedRow != null)
+            {
+                // Получаем данные клиента
+                int clientId = (int)selectedRow["client_id"];
+
+                // Переходим на страницу истории заказов клиента
+                NavigationService?.Navigate(new ClientHistoryPage(clientId));
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите клиента для просмотра истории заказов.");
+            }
+        }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+            // Переходим на страницу добавления клиента
+            NavigationService?.Navigate(new AddEditClientPage());
         }
     }
 }

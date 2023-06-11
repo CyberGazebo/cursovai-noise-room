@@ -22,19 +22,15 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Content="Имя:" Grid.Row="1" />
-            <TextBox x:Name="FirstNameTextBox" Grid.Row="2" />
-
-            <Label Content="Фамилия:" Grid.Row="3" />
-            <TextBox x:Name="LastNameTextBox" Grid.Row="4" />
-
-            <Label Content="Телефон:" Grid.Row="5" />
+            <Label Content="ФИО клиента:" Grid.Row="1" />
+        <TextBox x:Name="FirstNameTextBox" Grid.Row="2" />
+        <Label Content="Телефон:" Grid.Row="5" />
             <TextBox x:Name="PhoneTextBox" Grid.Row="6" />
 
             <Label Content="Электронная почта:" Grid.Row="7" />
             <TextBox x:Name="EmailTextBox" Grid.Row="8" />
 
-            <Button Content="Сохранить" Click="SaveButton_Click" Grid.Row="9" HorizontalAlignment="Center" Margin="0,40,0,86" />
+            <Button Content="Сохранить" Click="SaveButton_Click" Grid.Row="9" HorizontalAlignment="Center" Margin="360,39.8,360,152.6" />
         <Label Content="Добавление или редактирование пользователя"/>
 
     </Grid>

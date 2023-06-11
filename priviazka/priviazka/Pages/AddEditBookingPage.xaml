@@ -1,0 +1,30 @@
+﻿<Page x:Class="priviazka.AddEditBookingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:priviazka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditBookingPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Дата Брони:" Grid.Row="0"/>
+        <DatePicker x:Name="ScheduleDatePicker" Grid.Row="0" Margin="100,0,0,0"/>
+
+        <Label Content="время начала:" Grid.Row="1"/>
+        <TextBox x:Name="StartTimeTextBox" Grid.Row="1" Margin="100,0,0,0"/>
+
+        <Label Content="время конца:" Grid.Row="2"/>
+        <TextBox x:Name="EndTimeTextBox" Grid.Row="2" Margin="100,0,0,0"/>
+
+        <Button Content="Сохранить" Grid.Row="3" Click="SaveButton_Click" Margin="0,20,0,0"/>
+    </Grid>
+</Page>
